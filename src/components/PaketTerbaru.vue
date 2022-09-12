@@ -1,7 +1,7 @@
 <template>
-  <div id="app1">
+  <div id="app">
     <div class="con container">
-      <h2>Paket Wisata terbaik untuk kamu</h2>
+      <h2>Paket Wisata terbaru untuk kamu</h2>
       <br />
       <carousel
         :items="2"
@@ -26,12 +26,42 @@
         }"
       >
         <div class="carousel">
-          <h3 class="carousel-text">Paket Wisata <br />Jogjakarkta</h3>
+          <h3 class="carousel-text">Paket Wisata <br />Semarang</h3>
+          <button class="carousel-btn btn btn-primary">Lihat Detail</button>
+          <div class="carousel-bg"></div>
+          <img
+            class="carousel-img"
+            src="../assets/img/paket/semarang.jpg"
+            alt
+          />
+        </div>
+        <div class="carousel">
+          <h3 class="carousel-text">Paket Wisata <br />Purwokerto</h3>
+          <button class="carousel-btn btn btn-primary">Lihat Detail</button>
+          <div class="carousel-bg"></div>
+          <img
+            class="carousel-img"
+            src="../assets/img/paket/purwokerto.jpg"
+            alt
+          />
+        </div>
+        <div class="carousel">
+          <h3 class="carousel-text">Paket Wisata <br />Jakarta</h3>
+          <button class="carousel-btn btn btn-primary">Lihat Detail</button>
+          <div class="carousel-bg"></div>
+          <img
+            class="carousel-img"
+            src="../assets/img/paket/jakarta.jpg"
+            alt
+          />
+        </div>
+        <div class="carousel">
+          <h3 class="carousel-text">Paket Wisata <br />Jogjakarta</h3>
           <button class="carousel-btn btn btn-primary">Lihat Detail</button>
           <div class="carousel-bg"></div>
           <img class="carousel-img" src="../assets/img/paket/jogja.jpg" alt />
         </div>
-        <div class="carousel">
+        <!-- <div class="carousel">
           <h3 class="carousel-text">Paket Wisata <br />Bali</h3>
           <button class="carousel-btn btn btn-primary">Lihat Detail</button>
           <div class="carousel-bg"></div>
@@ -44,35 +74,17 @@
           <img class="carousel-img" src="../assets/img/paket/lombok.jpg" alt />
         </div>
         <div class="carousel">
-          <h3 class="carousel-text">Paket Wisata <br />Dieng</h3>
+          <h3 class="carousel-text">Paket Wisata <br />Yogyakarta</h3>
           <button class="carousel-btn btn btn-primary">Lihat Detail</button>
           <div class="carousel-bg"></div>
-          <img class="carousel-img" src="../assets/img/paket/dieng.jpg" alt />
-        </div>
-        <!-- <div class="carousel">
-            <h3 class="carousel-text">Paket Wisata <br />Bali</h3>
-            <button class="carousel-btn btn btn-primary">Lihat Detail</button>
-            <div class="carousel-bg"></div>
-            <img class="carousel-img" src="../assets/img/paket/bali.jpg" alt />
-          </div>
-          <div class="carousel">
-            <h3 class="carousel-text">Paket Wisata <br />Lombok</h3>
-            <button class="carousel-btn btn btn-primary">Lihat Detail</button>
-            <div class="carousel-bg"></div>
-            <img class="carousel-img" src="../assets/img/paket/lombok.jpg" alt />
-          </div>
-          <div class="carousel">
-            <h3 class="carousel-text">Paket Wisata <br />Yogyakarta</h3>
-            <button class="carousel-btn btn btn-primary">Lihat Detail</button>
-            <div class="carousel-bg"></div>
-            <img class="carousel-img" src="../assets/img/paket/jogja.jpg" alt />
-          </div> -->
+          <img class="carousel-img" src="../assets/img/paket/jogja.jpg" alt />
+        </div> -->
       </carousel>
     </div>
   </div>
 </template>
-  
-  <script>
+
+<script>
 import carousel from "vue-owl-carousel";
 
 export default {
@@ -82,8 +94,8 @@ export default {
   },
 };
 </script>
-  
-  <style>
+
+<style>
 .con {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -125,4 +137,3 @@ export default {
   transform: scale(1.5);
 }
 </style>
-  

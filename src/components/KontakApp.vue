@@ -42,10 +42,7 @@
   </div>
 </template>
 <script>
-
-export default {
-  
-};
+export default {};
 </script>
 <style>
 .kontak h1 {
@@ -158,7 +155,7 @@ export default {
 }
 @media only screen and (max-width: 800px) {
   .sos {
-    padding-top: 9%;
+    padding-top: 0%;
   }
 }
 </style>

@@ -85,6 +85,7 @@ export default {
   font-weight: 700;
   font-size: 24px;
   line-height: 150%;
+  background-color: blue;
 }
 .ikon p {
   text-align: justify;
@@ -162,7 +163,7 @@ export default {
 }
 @media only screen and (max-width: 800px) {
   .sos {
-    padding-top: 9%;
+    padding-top: 90%;
   }
 }
 </style>

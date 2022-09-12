@@ -45,9 +45,9 @@
                   rasakan perjalanan menyenangkan yang <br />
                   ga pernah kamu lupakan.
                 </p>
-                <button class="btn btn-md btn-primary mt-2">
+                <b-button href="#app1" class="btn btn-md btn-primary mt-2">
                   Mulai Sekarang
-                </button>
+                </b-button>
               </div>
             </div>
           </div>
@@ -55,11 +55,16 @@
       </div>
     </div>
     <ContohWisata />
+    <PaketTerbaru/>
     <DaftarWisata/>
     <PartnertshipApp />
     <WhyusApp />
+    <TestimoniApp/>
     <KontakApp/>
-    <FooterApp/>
+    <div class="foter mt-5">
+      <FooterApp/>
+    </div>
+    
   </div>
 </template>
 
@@ -70,15 +75,20 @@ import ContohWisata from "./ContohWisata.vue";
 import KontakApp from "./KontakApp.vue";
 import FooterApp from "./FooterApp.vue";
 import DaftarWisata from "./DaftarWisata.vue";
+import PaketTerbaru from "./PaketTerbaru.vue";
+import TestimoniApp from "./TestimoniApp.vue";
 
 
 export default {
   name: "HeaderApp",
-  components: { WhyusApp,DaftarWisata, PartnertshipApp, ContohWisata, KontakApp, FooterApp },
+  components: { WhyusApp, DaftarWisata, PartnertshipApp, ContohWisata, KontakApp, FooterApp, PaketTerbaru, TestimoniApp },
 };
 </script>
 
 <style>
+  * {
+    scroll-behavior: smooth;
+}
 .bg {
   position: absolute;
   top: 0;

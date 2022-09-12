@@ -2,10 +2,11 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import AboutView from '../views/AboutView.vue'
-import KontakView from '../views/KontakView.vue'
+import HalamankontakView from '../views/HalamankontakView.vue'
 import FasilitasView from '../views/FasilitasView.vue'
 import  DaftarwisataView from '../views/DaftarwisataView'
 import LoginApp from '../views/LoginApp.vue'
+import Daftarwisata  from '../components/DaftarWisata.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -20,9 +21,9 @@ const routes = [
     component: AboutView
   },
   {
-    path : '/KontakView',
-    name: 'KontakView',
-    component: KontakView
+    path : '/HalamankontakView',
+    name: 'HalamankontakView',
+    component: HalamankontakView
   },
   {
     path : '/FasilitasView',
@@ -38,6 +39,11 @@ const routes = [
     path : '/LoginApp',
     name: 'LoginApp',
     component: LoginApp
+  },
+  {
+    path : '/Daftarwisata',
+    name: 'Daftarwisata',
+    component: Daftarwisata
   },
   
   {

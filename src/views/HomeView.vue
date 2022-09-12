@@ -1,23 +1,20 @@
 <template>
   <div class="home">
-    <NavigationApp/>
-    <HeaderApp/>
-
-    
+    <NavigationApp />
+    <HeaderApp />
   </div>
-  
 </template>
 
 <script>
 // @ is an alias to /src
-import NavigationApp from '@/components/NavigationApp.vue';
-import HeaderApp from '@/components/HeaderApp.vue';
+import NavigationApp from "@/components/NavigationApp.vue";
+import HeaderApp from "@/components/HeaderApp.vue";
 
 export default {
-  name: 'HomeView',
+  name: "HomeView",
   components: {
     NavigationApp,
-    HeaderApp
-}
-}
+    HeaderApp,
+  },
+};
 </script>
