@@ -1,10 +1,10 @@
 <template>
-  <div id="app " style="background-color: #f5f6f8">
+  <div id="app" style="background-color: #f5f6f8;padding-top:42px;padding-bottom:42px;">
     <div class="con container">
-      <h2>Paket Wisata yang bisa kamu pilih</h2>
+      <h2 class="semua-wisata">Paket Wisata yang bisa kamu pilih</h2>
       <br />
-      <carousel
-        :items="2"
+      <carousel  v-if="wisataSemua.length > 0"
+        :items="1"
         :loop="true"
         :autoplay="true"
         :margin="30"
@@ -15,66 +15,32 @@
         :autoplayHoverPause="false"
         :responsive="{
           0: {
-            items: 1,
+            items: 1.5,
+          },
+          500: {
+            items: 2,
           },
           768: {
-            items: 2,
+            items: 3,
           },
           1000: {
             items: 4,
           },
         }"
       >
-        <div class="carousel">
-          <h3 class="carousel-text">Paket Wisata <br />Semarang</h3>
-          <button class="carousel-btn btn btn-primary">Lihat Detail</button>
+        <div class="carousell" v-for="wisata in wisataSemua" :key="wisata.id">
+          <h3 class="carousel-text">Paket Wisata <br />{{wisata.kota}}</h3>
+          <button class="carousel-btn btn btn-primary">
+            <router-link class="nav-link" :to="{ name: 'paket', params: { id: wisata.id } }">Lihat Detail</router-link>
+          </button>
           <div class="carousel-bg"></div>
           <img
-            class="carousel-img"
-            src="../assets/img/paket/semarang.jpg"
+            class="carousell-img"
+            :src="pathSemua + wisata.pathgambar"
             alt
           />
         </div>
-        <div class="carousel">
-          <h3 class="carousel-text">Paket Wisata <br />Jakarta</h3>
-          <button class="carousel-btn btn btn-primary">Lihat Detail</button>
-          <div class="carousel-bg"></div>
-          <img class="carousel-img" src="../assets/img/paket/jakarta.jpg" alt />
-        </div>
-        <div class="carousel">
-          <h3 class="carousel-text">Paket Wisata <br />Purwokerto</h3>
-          <button class="carousel-btn btn btn-primary">Lihat Detail</button>
-          <div class="carousel-bg"></div>
-          <img
-            class="carousel-img"
-            src="../assets/img/paket/purwokerto.jpg"
-            alt
-          />
-        </div>
-        <div class="carousel">
-          <h3 class="carousel-text">Paket Wisata <br />Dieng</h3>
-          <button class="carousel-btn btn btn-primary">Lihat Detail</button>
-          <div class="carousel-bg"></div>
-          <img class="carousel-img" src="../assets/img/paket/dieng.jpg" alt />
-        </div>
-        <div class="carousel">
-          <h3 class="carousel-text">Paket Wisata <br />Bali</h3>
-          <button class="carousel-btn btn btn-primary">Lihat Detail</button>
-          <div class="carousel-bg"></div>
-          <img class="carousel-img" src="../assets/img/paket/bali.jpg" alt />
-        </div>
-        <div class="carousel">
-          <h3 class="carousel-text">Paket Wisata <br />Lombok</h3>
-          <button class="carousel-btn btn btn-primary">Lihat Detail</button>
-          <div class="carousel-bg"></div>
-          <img class="carousel-img" src="../assets/img/paket/lombok.jpg" alt />
-        </div>
-        <div class="carousel">
-          <h3 class="carousel-text">Paket Wisata <br />Yogyakarta</h3>
-          <button class="carousel-btn btn btn-primary">Lihat Detail</button>
-          <div class="carousel-bg"></div>
-          <img class="carousel-img" src="../assets/img/paket/jogja.jpg" alt />
-        </div>
+
       </carousel>
     </div>
   </div>
@@ -82,31 +48,52 @@
   
   <script>
 import carousel from "vue-owl-carousel";
-
+import axios from 'axios'
 export default {
   name: "DaftarWisata",
   components: {
     carousel,
   },
+  data(){
+  return{
+    wisataSemua:[],
+      pathSemua: this.$pathApi
+  }
+},
+
+methods: {
+   setFoto(data) {
+     this.wisataSemua = data;
+   },
+   },
+   props: ["wisata"],
+ mounted() {
+     axios
+       .get(this.pathSemua + "api/user/halamanutama/semua", {
+         headers: {
+           'ngrok-skip-browser-warning': 1
+         }
+      })
+       .then((response) => this.setFoto(response.data))
+       .catch((error) =>
+         console.log("gagal :", error));
+   },
+
+
 };
 </script>
   
   <style>
-.con {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
-  margin-top: 130px;
-}
 
-.carousel {
+
+.carousell {
   position: relative;
   border-radius: 20px;
   overflow: hidden;
-  height: 400px;
+  height: 300px;
 }
 .carousel-text {
+  font-family: 'Roboto',sans-serif;
   position: absolute;
   bottom: 0;
   margin-bottom: 100px;
@@ -130,8 +117,14 @@ export default {
   opacity: 0.8;
   z-index: 550;
 }
-.carousel-img {
-  transform: scale(1.5);
+.carousell-img {
+  height:100%;
+}
+.semua-wisata{
+  font-family: 'Lato', sans-serif;
+  font-weight: bold;
+  line-height: 43px;
+  font-style: normal;
 }
 </style>
   

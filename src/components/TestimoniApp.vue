@@ -1,10 +1,10 @@
 <template>
-  <div id="app " style="background-color: #f5f6f8; height: 500px">
+  <div class="testimoni">
     <div class="conku container">
-      <h2 class="text pt-5">Apa yang pelanggan katakan tentang kami?</h2>
+      <h2 class="testi">Apa yang pelanggan katakan tentang kami?</h2>
       <br />
-      <carousel
-        :items="2"
+      <carousel v-if="fotoTesti.length > 0"
+        :items="1"
         :loop="true"
         :autoplay="true"
         :margin="30"
@@ -15,85 +15,35 @@
         :autoplayHoverPause="false"
         :responsive="{
           0: {
-            items: 1,
+            items: 1.5,
           },
-          768: {
+          500: {
             items: 2,
           },
-          1000: {
+          768: {
             items: 3,
           },
+          1200: {
+            items: 3
+          }
         }"
       >
-        <div class="carouselku">
-          <h3 class="carousel-textku">
-            Testimoni untuk paket <br />
-            wisata yogyakarta
-          </h3>
-          <div class="carousel-bglu">
-            <a @click="modalShow = !modalShow"
-              ><img
-                class="carousel-imgku"
-                src="../assets/img/testimoni/Group 127(1).png"
-                alt
-              />
+      <div class="d-flex" v-for="foto in fotoTesti" :key="foto.id" >
+        <div class="carouselku " >
+          <h5 class="carousel-textku"> 
+             {{foto.caption}} 
+          </h5>
+          <div class="carousel-bglu "> 
+            <a @click="modalShow = !modalShow">
+              <img class="carousel-imgku" :src=" pathTesti + foto.path" alt="about1" >
             </a>
           </div>
           <div class="carousel-bgku"></div>
-          <b-modal v-model="modalShow" class="mob">
-            <img
-              class="carousel-img2"
-              src="../assets/img/testimoni/Group 127(1).png"
-              alt
-            />
+          <b-modal v-model="modalShow" class="mob"> 
+            <img class="carousel-img2" :src=" pathTesti + foto.path" >
           </b-modal>
         </div>
-        <div class="carouselku">
-          <h3 class="carousel-textku">
-            Testimoni untuk paket <br />
-            wisata jakarta
-          </h3>
-          <div class="carousel-bglu">
-            <a @click="modalShow1 = !modalShow1"
-              ><img
-                class="carousel-imgku"
-                src="../assets/img/testimoni/Group 129.png"
-                alt
-              />
-            </a>
-          </div>
-          <div class="carousel-bgku"></div>
-          <b-modal v-model="modalShow1" class="mob">
-            <img
-              class="carousel-img2"
-              src="../assets/img/testimoni/Group 129.png"
-              alt
-            />
-          </b-modal>
-        </div>
-        <div class="carouselku">
-          <h3 class="carousel-textku">
-            Testimoni untuk paket <br />
-            wisata semarang
-          </h3>
-          <div class="carousel-bglu">
-            <a @click="modalShow2 = !modalShow2"
-              ><img
-                class="carousel-imgku"
-                src="../assets/img/testimoni/Group 124.png"
-                alt
-              />
-            </a>
-          </div>
-          <div class="carousel-bgku"></div>
-          <b-modal v-model="modalShow2" class="mob">
-            <img
-              class="carousel-img2"
-              src="../assets/img/testimoni/Group 124.png"
-              alt
-            />
-          </b-modal>
-        </div>
+      </div>
       </carousel>
     </div>
   </div>
@@ -101,37 +51,65 @@
   
   <script>
 import carousel from "vue-owl-carousel";
+//import TestimoniUser from "./Testimoni/TestimoniUser.vue";
+ import axios from "axios"
 
 export default {
   name: "DaftarWisata",
   components: {
     carousel,
-  },
+  
+    //TestimoniUser,
+},
   data() {
     return {
       modalShow: false,
       modalShow1: false,
-      modalShow2: false,
+       fotoTesti:[],
+       pathTesti: this.$pathApi
+       
     };
   },
+ methods: {
+   setFoto(data) {
+     this.fotoTesti = data;
+   },
+   },
+   props: ["foto"],
+ mounted() {
+     axios
+       .get(this.pathTesti + "api/user/testimoniuser", {
+         headers: {
+           'ngrok-skip-browser-warning': 1
+         }
+      })
+       .then((response) => this.setFoto(response.data))
+       .catch((error) =>
+         console.log("gagal :", error));
+   },
 };
 </script>
   
   <style>
-.conku h2 {
-  font-family: "Lato", sans-serif;
-  font-size: 36px;
-  font-style: normal;
-  font-weight: 700;
-  margin-top: 9px;
-}
 
+.testimoni {
+  background-color: #f5f6f8;
+  height: 450px;
+  padding-top:42px;
+  padding-bottom:42px;
+ 
+}
+.semangat{
+  width: 400px;
+  gap: 100px;
+}
 .carouselku {
   position: relative;
-  border-radius: 20px;
+  border-radius: 16px;
   overflow: hidden;
   height: 259px;
   width: 340px;
+  
 }
 .carousel-textku {
   position: absolute;
@@ -139,9 +117,10 @@ export default {
   font-style: normal;
   bottom: 0;
   margin-bottom: 10px;
-  margin-left: 20px;
+  margin-left: 7px;
   z-index: 551;
   color: #ffffff;
+  padding:1em;
 }
 .carousel-btn {
   position: absolute;
@@ -150,23 +129,34 @@ export default {
   margin-left: 20px;
   margin-bottom: 40px;
 }
+.carousel-bglu {
+  width: 100%;
+  position: absolute;
+}
+.testi{
+  font-family: 'Lato', sans-serif;
+  font-weight: bold;
+  line-height: 43px;
+  font-style: normal;
+}
 .carousel-bgku {
   width: 100%;
   position: absolute;
-  margin-left: 20px;
+  
   bottom: 0;
-  height: 40%;
+  height: 50%;
   background: linear-gradient(transparent, #000000);
-  opacity: 20;
+  opacity: 80;
   z-index: 550;
+  
 }
 .carousel-imgku {
   width: 900px;
-  height: 900px;
+
 }
 .carousel-img2 {
   transform: scale(1.5);
-  height: 400px;
+
   width: 350px;
   margin-left: 70px;
 }

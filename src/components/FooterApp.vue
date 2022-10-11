@@ -1,82 +1,30 @@
 <template>
-  <div class="badan container-fluid">
-    <div class="container">
-      <div class="row">
-        <div class="tengah col-md-4">
-          <div class="sosmed mt-5">
-            <a
-              href="https://instagram.com/partnerjalan_id?igshid=YmMyMTA2M2Y="
-              target=""
-              rel=""
-            >
-              <img
-                style="margin-left: 5%"
-                src="@/assets/img/Icons/instagram.png"
-                alt=""
-              />
-            </a>
-            <a href="" target="" rel="">
-              <img
-                style="margin-left: 5%"
-                src="@/assets/img/Icons/facebook.png"
-                alt=""
-              />
-            </a>
-            <a href="" target="" rel="">
-              <img
-                style="margin-left: 5%"
-                src="@/assets/img/Icons/twitter.png"
-                alt=""
-              />
-            </a>
-            <a href="" target="" rel="">
-              <img
-                style="margin-left: 5%"
-                src="@/assets/img/Icons/youtube.png"
-                alt=""
-              />
-            </a>
-          </div>
-        </div>
+  <div class="footer">
+      <div class="d-flex justify-content-center footerContent">
+       <a href="https://forum.unity.com/threads/unity-hub-3-3-release-overview.1335569/"> <img  src="@/assets/img/Icons/facebook.png" alt="" /> </a>
+       <a href=""> <img src="@/assets/img/Icons/instagram.png" alt="" /> </a>
+       <a href=""> <img src="@/assets/img/Icons/twitter.png" alt="" /> </a>
+       <a href=""> <img src="@/assets/img/Icons/youtube.png" alt="" /> </a>
       </div>
-    </div>
-    <div class="titleku container-fluid">
-      <p>@ 2022 copyright Partnerjalan</p>
-    </div>
+      <div class="copyright d-flex justify-content-center ">
+        <p class="text-white mt-5">@ 2022 copyright Partnerjalan</p>
+      </div>
   </div>
 </template>
+
 <script>
-export default {
-  name: "FooterApp",
-};
+
 </script>
+
 <style>
-.badan {
-  background-color: #133345;
-  height: 150px;
-  padding-bottom: 2em;
+.footer {
+  height:180px;
+  background:#133345;
 }
-.titleku {
-  background-color: #0b1e29;
-  height: 45px;
-  margin-top: 15px;
+.footerContent {
+padding-top:42px;
 }
-.titleku p {
-  text-align: center;
-  font-family: "Roboto";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 18px;
-  color: #ffffff;
-}
-.tengah {
-  display: block;
-  margin-left: 37%;
-  margin-right: auto;
-}
-@media only screen and (max-width: 380px) {
-  .tengah {
-    margin-left: 10%;
-  }
+.footerContent img {
+  margin:0 7px;
 }
 </style>

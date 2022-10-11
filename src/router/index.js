@@ -7,6 +7,9 @@ import FasilitasView from '../views/FasilitasView.vue'
 import  DaftarwisataView from '../views/DaftarwisataView'
 import LoginApp from '../views/LoginApp.vue'
 import Daftarwisata  from '../components/DaftarWisata.vue'
+import WisataJogja from '../components/WisataJogja.vue'
+import DetailPesanan from '../components/DetailPesanan.vue'
+import KodePemesanan from '../components/KodePemesanan.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -45,13 +48,24 @@ const routes = [
     name: 'Daftarwisata',
     component: Daftarwisata
   },
-  
+  {
+    path : '/paket/:id',
+    name: 'paket',
+    component: WisataJogja
+  },
+  {
+    path : '/pesanan/:id',
+    name: 'pesanan',
+    component: DetailPesanan
+  },
+  {
+    path : '/KodePemesanan',
+    name: 'KodePemesanan',
+    component: KodePemesanan
+  },
   {
     path: '/about',
     name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
   }
 ]

@@ -1,103 +1,94 @@
 <template>
-  <div class="container">
-    <div class="hero-dk h-100">
-      <div class="row">
-        <div class="aku col-md-6">
-          <h1>Kenapa Memilih Kami?</h1>
-          <img class="gbr" src="@/assets/img/kacamta.png" alt="" />
-        </div>
-        <div class="row col-md-6">
-            <div class="aku1  ">
-          <p class="kete">
+  <div class="container whyus">
+    <h3 style="" class="kenapa">Kenapa Memilih Kami ?</h3>
+    <div class="row">
+      <div class="col-md-6">
+        <img class="gbr" src="@/assets/img/kacamta.png" style="width:100%" />
+      </div>
+      <div class="col-md-6">
+        <br>
+        <div class="whycards">
+          <p class="whydesc">
             Kami siap mengantarkan kamu ke berbagai destinasi menarik di
             berbagai kota wisata terbaik di indonesia dan kami jamin kamu bakal
             dapat pengalaman yang terbaik deh.
           </p>
-          <div class="icon d-flex">
-            <div class="dolar">
-              <img src="@/assets/img/Icons/price.png" alt="" />
-              <p style="font-size:18px;">Range harga terbaik dan terjangkau</p>
+          <div class="row">
+            <div class="whycard col-4">
+                <div class="row">
+                  <div class="col-12 d-flex justify-content-center">
+                    <img src="@/assets/img/Icons/price.png" alt="" />
+                  </div>
+                  <div class="col-12">
+                    <p class="text-center">Range harga terbaik dan terjangkau</p>
+                  </div>
+                </div>
             </div>
-            <div class="dolar">
-              <img src="@/assets/img/Icons/home.png" alt="" />
-              <p>Beragam akomodasi yang bisa di pilih</p>
+            <div class="whycard col-4">
+                <div class="row">
+                  <div class="col-12 d-flex justify-content-center">
+                    <img src="@/assets/img/Icons/home.png" alt="" />
+                  </div>
+                  <div class="col-12">
+                    <p class="text-center">Beragam akomodasi yang bisa di pilih</p>
+                  </div>
+                </div>
             </div>
-            <div class="dolar">
-              <img src="@/assets/img/Icons/place.png" alt="" />
-              <p>Tempat wisata favorit di indonesia</p>
+            <div class="whycard col-4">
+                <div class="row">
+                  <div class="col-12 d-flex justify-content-center">
+                    <img src="@/assets/img/Icons/place.png" alt="" />
+                  </div>
+                  <div class="col-12">
+                    <p class="text-center">Tempat wisata favorit di indonesia</p>
+                  </div>
+                </div>
             </div>
+ 
           </div>
         </div>
-        </div>
-      
       </div>
     </div>
-   
   </div>
 </template>
-<script>
-</script>
-<style>
-p {
-  font-size:18px;
-}
-.aku h1 {
-  font-family: "Lato", sans-serif;
-  font-weight: 700;
-  font-style: normal;
-  padding-top: 5%;
-  font-size: 30px;
-  line-height: 36px;
-}
-.aku p {
-  font-weight: 400;
-  padding-top: 17%;
-  font-family: "Roboto", sans-serif;
-  font-size: 18px;
-  font-style: normal;
-  line-height: 150%;
-}
-.aku img {
-  margin-top: 6%;
-  width: 480px;
-  height: 387px;
-}
-.icon img {
-  width: 70px;
-  height: 70px;
-  margin-top: 25px;
-  margin-left: 55px;
-}
-@media only screen and (max-width: 800px) {
-  .hero-dk .gbr {
-    display: none;
-  }
-  
-}
-.icon {
-  justify-content: space-between;
-}
-.icon p {
-  font-size: 18px;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 500;
-  font-style: normal;
-  line-height: 150%;
-  text-align: center;
-  margin-bottom: 90%;
-}
-.aku1 .kete{
-  font-family: 'Roboto',sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 150%;
-  margin-top: 140px;
- 
-}
-.aku1{
-  width: 90%;
- 
-}
 
+<script>
+export default {
+
+}
+</script>
+
+<style>
+  .whyus {
+    padding-top:84px;
+    padding-bottom:84px;
+  }
+
+  .whycards {
+    padding:1em;
+  }
+
+  .whycard {
+    width:33.33%;
+    background:#fff;
+  }
+  .whydesc {
+    margin-bottom: 42px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+  }
+  .whycard p {
+    margin-top:21px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+  }
+  .kenapa{
+    margin-bottom:42px;
+    font-family: 'Lato', sans-serif;
+  font-weight: bold;
+  line-height: 43px;
+  font-style: normal;
+  }
 </style>

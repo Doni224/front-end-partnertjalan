@@ -1,71 +1,76 @@
 <template>
-  <div class="fasilitasBox">
+  <div>
     <NavigationApp/>
-    <div class="container box">
-        <h3 style="margin-top:42px;margin-bottom:21px;">Fasilitas yang didapatkan</h3>
-            <div class="row d-flex justify-content-between">
-                <div class="col-md-3 fasilitasList p-5">
-                    <h4>Fasilitas Tour</h4>
-                    <ol>
-                        <li>Transportasi Bus Pariwisata</li>
-                        <li>Profesional Tour Leader</li>
-                        <li>Photographer Kegiatan</li>
-                        <li>Biaya Parkir Bus</li>
-                        <li>Tips Driver</li>
-                        <li>Tips Co Driver</li>
-                        <li>P3K</li>
-                        <li>Banner Kegiatan</li>
-                    </ol>
-                </div>
-                <div class="col-md-3 fasilitasList p-5">
-                    <h4>Fasilitas Peserta</h4>
-                    <ol>
-                        <li>Tiket Masuk Destinasi</li>
-                        <li>Dokumentasi Video</li>
-                        <li>Air Mineral</li>
-                        <li>Snack</li>
-                        <li>Makan Berat</li>
-                    </ol>
-                </div>
-                <div class="col-md-3 fasilitasList p-5">
-                    <h4>Bonus</h4>
-                    <ol>
-                        <li>Frame Photo 12R/Organisasi</li>
-                        <li>Photo 4R/Peserta</li>
-                        <li>Soft File Photo</li>
-                        <li>Doorprize</li>
-                        <li>Poster Kegiatan</li>
-                    </ol>
+    <div class="container-fluid fasilitass">
+      <div class="container fasilitas">
+        <br><br><br>
+        <h2>Fasilitas yang didapatkan</h2>
+        <div class="row">
+            <div class="col-md-4 gy-3">
+                <div class="fasilitasCard">
+                    <h3 class="fasilitasTitle">Fasilitas Tour</h3>
+                    <FasilitasTour/>
                 </div>
             </div>
-            <div style="padding-bottom:3rem"></div>
+            <div class="col-md-4 gy-3">
+                <div class="fasilitasCard">
+                    <h3 class="fasilitasTitle">Fasilitas Peserta</h3>
+                    <FasilitasPeserta/>
+                </div>
+            </div>
+            <div class="col-md-4 gy-3">
+                <div class="fasilitasCard">
+                    <h3 class="fasilitasTitle">Bonus</h3>
+                    <FasilitasBonus/>
+                </div>
+            </div>
         </div>
+        <br><br>
+      </div>
+    </div>
     <FooterApp/>
   </div>
 </template>
 
 <script>
 import FooterApp from "@/components/FooterApp.vue";
+import FasilitasTour from '@/components/Fasilitas/FasilitasTour.vue';
+import FasilitasPeserta from '@/components/Fasilitas/FasilitasPeserta.vue';
+import FasilitasBonus from '@/components/Fasilitas/FasilitasBonus.vue';
 import NavigationApp from "@/components/NavigationApp.vue";
 export default{
   components:{
     FooterApp,
+    FasilitasTour,
+    FasilitasPeserta,
+    FasilitasBonus,
     NavigationApp
 }
 }
 </script>
 
 <style>
-
-    .fasilitasBox {
+    .fasilitass {
         background:#f5f6f8;
     }
-    .fasilitasList {
-
-        background:#fff;
-        border-radius:8px;
+    .fasilitas {
+        min-height:72vh;
     }
-    h4 {
+    .fasilitas h2 {
+        margin-bottom:42px;
+        padding-top:42px;
+        font-family: 'Lato',sans-serif;
+        font-weight: bold;
+    }
+    .fasilitasTitle {
         color:#55C9D3;
+        margin-bottom:14px;
+    }
+    .fasilitasCard {
+        height:350px;
+        padding:42px;
+        background:#fff;
+        border-radius:16px;
+
     }
 </style>
